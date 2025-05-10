@@ -25,7 +25,7 @@ router.get('/', userController.getUsers);
  *         name: id
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
  *     responses:
  *       200:
  *         description: Користувач знайдений
@@ -74,7 +74,7 @@ router.post('/', userController.createUser);
  *         name: id
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
  *     requestBody:
  *       required: true
  *       content:
@@ -106,7 +106,7 @@ router.put('/:id', userController.updateUser);
  *         name: id
  *         required: true
  *         schema:
- *           type: integer
+ *           type: string
  *     responses:
  *       200:
  *         description: Користувач видалений
