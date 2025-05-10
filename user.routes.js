@@ -1,5 +1,4 @@
 const express = require('express');
-const { param } = require('express-validator');
 const userController = require('./user.controller');
 
 const router = express.Router();
@@ -26,19 +25,14 @@ router.get('/', userController.getUsers);
  *         required: true
  *         schema:
  *           type: string
+ *           example: 662edebc5d327c3b76fb7a26
  *     responses:
  *       200:
  *         description: Користувач знайдений
  *       404:
  *         description: Користувач не знайдений
  */
-router.get(
-    '/:id',
-    [
-        param('id').isInt().withMessage('ID має бути цілим числом').toInt()
-    ],
-    userController.getUserById
-);
+router.get('/:id', userController.getUserById);
 
 /**
  * @swagger
@@ -75,6 +69,7 @@ router.post('/', userController.createUser);
  *         required: true
  *         schema:
  *           type: string
+ *           example: 662edebc5d327c3b76fb7a26
  *     requestBody:
  *       required: true
  *       content:
@@ -107,6 +102,7 @@ router.put('/:id', userController.updateUser);
  *         required: true
  *         schema:
  *           type: string
+ *           example: 662edebc5d327c3b76fb7a26
  *     responses:
  *       200:
  *         description: Користувач видалений
